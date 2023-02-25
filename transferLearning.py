@@ -44,3 +44,11 @@ predicted_class_name = imagenet_labels[predicted_class]
 _ = plt.title("Prediction: " + predicted_class_name.title())
 
 #Tensorflow Hub model
+(train_examples, validation_examples), info = tfds.load(
+    'cats_vs_dogs',
+    with_info=True,
+    as_supervised=True,
+    split=['train[:80%]', 'train[80%:]'],
+)
+num_examples = info.splits['train'].num_examples
+num_classes = info.features['label'].num_classes
