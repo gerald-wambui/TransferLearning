@@ -40,3 +40,5 @@ imagenet_labels = np.array(open(labels_path).read().splitlines())
 
 plt.imshow(grace_hopper)
 plt.axis('off')
+predicted_class_name = imagenet_labels[predicted_class]
+_ = plt.title("Prediction: " + predicted_class_name.title())
