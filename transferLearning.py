@@ -31,3 +31,5 @@ grace_hopper.shape
 result = model.predict(grace_hopper[np.neewaxis, ...])
 result.shape
 
+predicted_class = np.argmax(result[0], axis=-1)
+predicted_class
