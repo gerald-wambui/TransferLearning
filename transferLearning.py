@@ -42,3 +42,5 @@ plt.imshow(grace_hopper)
 plt.axis('off')
 predicted_class_name = imagenet_labels[predicted_class]
 _ = plt.title("Prediction: " + predicted_class_name.title())
+
+#Tensorflow Hub model
