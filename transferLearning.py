@@ -52,3 +52,5 @@ _ = plt.title("Prediction: " + predicted_class_name.title())
 )
 num_examples = info.splits['train'].num_examples
 num_classes = info.features['label'].num_classes
+
+#reformat all the images into res expected by mobinet
