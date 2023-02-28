@@ -68,3 +68,12 @@ BATCH_SIZE = 32
 
 train_batches = train_examples.shuffle(num_examples//4).map(format_image).batch(BATCH_SIZE).prefetch(1)
 validation_batches = validation_examples.map(format_image).batch(BATCH_SIZE).prefetch(1)
+
+image_batch, label_batch = next(iter(train_batches.take(1)))
+image_batch = image_batch.numpy()
+label_batch = label_batch.numpy()
+
+result_batch = model.predict(image_batch)
+
+predicted_class_names = imagenet_labels[np.argmax(result_batch, axis=-1)]
+predicted_class_names
