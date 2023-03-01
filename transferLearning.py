@@ -77,3 +77,8 @@ result_batch = model.predict(image_batch)
 
 predicted_class_names = imagenet_labels[np.argmax(result_batch, axis=-1)]
 predicted_class_names
+
+plt.figure(figsize=(10,9))
+for n in range(30):
+    plt.subplot(6,5,n+1)
+    plt.subplots_adjust(hspace = 0.3)
