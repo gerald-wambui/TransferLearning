@@ -83,5 +83,11 @@ plt.figure(figsize=(10, 9))
 for n in range(30):
     plt.subplot(6, 5, n+1)
     plt.subplots_adjust(hspace=0.3)
+    plt.imshow(image_batch[n])
+    plt.title(predicted_class_names[n])
+    plt.axis('off')
+    _ = plt.suptitle("ImageNet predictions")
+
+#
 
 #chaotic day
