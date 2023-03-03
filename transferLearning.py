@@ -96,4 +96,6 @@ feature_extractor = hub.KerasLayer(URL,
 feature_batch = feature_extractor(image_batch)
 print(feature_batch.shape)
 
+feature_extractor.trainable = False
+
 #chaotic day
