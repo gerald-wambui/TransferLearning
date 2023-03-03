@@ -103,4 +103,20 @@ model = tf.keras.Sequential([
     layers.Dense(2)
 ])
 model.summary()
+
+##Training
+##Lets take our model to the gym for some workout 😂😂😂😂
+
+model.compile(
+    optimizier='adam',
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+    metrics=['accuracy']
+)
+
+EPOCHS = 6
+history = model.fit(train_batches,
+                    epochs=EPOCHS,
+                    validation_data=validation_batches)
+
+
 #chaotic day
