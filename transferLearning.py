@@ -88,6 +88,9 @@ for n in range(30):
     plt.axis('off')
     _ = plt.suptitle("ImageNet predictions")
 
-#
+#URL = "https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/2"
+URL = "https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/2"
+feature_extractor = hub.KerasLayer(URL,
+                                   input_shape=(IMAGE_RES, IMAGE_RES, 3))
 
 #chaotic day
