@@ -106,6 +106,7 @@ model.summary()
 
 ##Training
 ##Lets take our model to the gym for some workout 😂😂😂😂
+##  By the way you really need a big gym trust me
 
 model.compile(
     optimizier='adam',
