@@ -98,4 +98,9 @@ print(feature_batch.shape)
 
 feature_extractor.trainable = False
 
+model = tf.keras.Sequential([
+    feature_extractor,
+    layers.Dense(2)
+])
+model.summary()
 #chaotic day
