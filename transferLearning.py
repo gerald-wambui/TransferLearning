@@ -119,5 +119,8 @@ history = model.fit(train_batches,
                     epochs=EPOCHS,
                     validation_data=validation_batches)
 
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+
 
 #chaotic day
