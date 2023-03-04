@@ -59,7 +59,7 @@ num_classes = info.features['label'].num_classes
 
 for i, example_image in enumerate(train_examples.take(3)):
     print("Image {} shape: {}".format(i+1, example_image[0].shape))
-
+#.
 def format_image(image, label):
     image = tf.image.resize(image, (IMAGE_RES, IMAGE_RES))/255.0
     return image, label
@@ -122,5 +122,6 @@ history = model.fit(train_batches,
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
 
-
+loss = history.history['loss']
+val_loss = history.history['val_loss']
 #chaotic day
