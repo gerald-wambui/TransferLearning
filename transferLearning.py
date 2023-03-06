@@ -103,7 +103,13 @@ model = tf.keras.Sequential([
     layers.Dense(2)
 ])
 model.summary()
-
+""""
+model = tf.keras.Sequential([
+    feature_extractor,
+    layers.Dense(2)
+])
+model.summary()
+"""
 ##Training
 ##Lets take our model to the gym for some workout 😂😂😂😂
 ##  By the way you really need a big gym trust me
@@ -124,4 +130,5 @@ val_acc = history.history['val_accuracy']
 
 loss = history.history['loss']
 val_loss = history.history['val_loss']
+
 #chaotic day
