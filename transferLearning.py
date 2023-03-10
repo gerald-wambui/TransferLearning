@@ -131,4 +131,46 @@ val_acc = history.history['val_accuracy']
 loss = history.history['loss']
 val_loss = history.history['val_loss']
 
+epochs_range = range(EPOCHS)
+
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(epochs_range, acc, label='Training Accuracy')
+plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+plt.legend(loc='lower right')
+plt.title('Training and Validation Accuracy')
+plt.subplot(1, 2, 2)
+plt.plot(epochs_range, loss, label='Training Loss')
+plt.plot(epochs_range, val_loss, label='Validation Loss')
+plt.legend(loc='upper right')
+plt.title('Training and Validation Loss')
+plt.show()
+
+
+'''
+check the predictions first get the ordered list of class names
+then run the image batch through the model and 
+convert the 
+indices to class names
+'''
+
+class_names = np.array(info.features['label'].names)
+class_names
+predicted_batch = model.predict(image_batch)
+predicted_batch = tf.squeeze(predicted_batch).numpy()
+predicted_ids = np.argmax(predicted_batch, axis=-1)
+predicted_class_names = class_names[predicted_ids]
+predicted_class_names
+print("Labels: ", label_batch)
+print("Predicted labels: ", predicted_ids)
+plt.figure(figsize=(10, 9))
+for n in range(30):
+    plt.subplot(6,5,n+1)
+    plt.subplots_adjust(hspace=0.3)
+    plt.imshow(image_batch[n])
+    color = "blue" if predicted_ids[n] == label_batch[n] else "red"
+    plt.title(predicted_class_names[n].title(), color=color)
+    plt.axis('off')
+    _ = plt.suptitle("Model predictions (blue: correct, red: incorrect)")
+
 #chaotic day
