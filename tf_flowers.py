@@ -17,3 +17,18 @@ logger.setLevel(logging.ERROR)
     as_supervised=True,
 )
 
+
+num_classes = dataset_info.features['label'].num_classes
+
+num_training_examples = 0
+num_validation_examples = 0
+
+for example in training_set:
+  num_training_examples += 1
+
+for example in validation_set:
+  num_validation_examples += 1
+
+print('Total Number of Classes: {}'.format(num_classes))
+print('Total Number of Training Images: {}'.format(num_training_examples))
+print('Total Number of Validation Images: {} \n'.format(num_validation_examples))
