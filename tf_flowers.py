@@ -34,3 +34,4 @@ print('Total Number of Training Images: {}'.format(num_training_examples))
 print('Total Number of Validation Images: {} \n'.format(num_validation_examples))
 
 #fucked
+# feeling confused abt this give me time
