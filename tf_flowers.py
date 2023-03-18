@@ -100,5 +100,8 @@ plt.legend(loc='upper right')
 plt.title('Training and Validation Loss')
 plt.show()
 
+# check predictions
+class_names = np.array(dataset_info.features['label'].names)
+print(class_names)
 # fucked
 # feeling confused abt this give me time
