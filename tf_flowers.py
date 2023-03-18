@@ -61,5 +61,26 @@ feature_extractor = hub.KerasLayer(URL,
 
 # Put some ice on our model
 feature_extractor.trainable = False
+
+# classification head
+model = tf.keras.Sequential([
+    feature_extractor,
+    layers.Dense(num_classes)
+])
+
+model.summary()
+
+# Training
+model.compile(
+    optimizer='adam',
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+    metrics=['accuracy']
+)
+
+EPOCHS = 6
+
+history = model.fit(train_batches,
+                    epochs=EPOCHS,
+                    validation_data=validation_batches)
 # fucked
 # feeling confused abt this give me time
