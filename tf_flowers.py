@@ -81,6 +81,13 @@ EPOCHS = 6
 
 history = model.fit(train_batches,
                     epochs=EPOCHS,
-                    validation_data=validation_batches)
+                    validation_data=validation_batches
+                    )
+
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+
+loss = history.history['loss']
+val_loss = history.history['val_loss']
 # fucked
 # feeling confused abt this give me time
