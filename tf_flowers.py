@@ -17,31 +17,35 @@ logger.setLevel(logging.ERROR)
     as_supervised=True,
 )
 
-
 num_classes = dataset_info.features['label'].num_classes
 
 num_training_examples = 0
 num_validation_examples = 0
 
 for example in training_set:
-  num_training_examples += 1
+    num_training_examples += 1
 
 for example in validation_set:
-  num_validation_examples += 1
+    num_validation_examples += 1
 
 print('Total Number of Classes: {}'.format(num_classes))
 print('Total Number of Training Images: {}'.format(num_training_examples))
 print('Total Number of Validation Images: {} \n'.format(num_validation_examples))
 
 for i, example in enumerate(training_set.take(5)):
-  print('Image {} shape: {} label: {}'.format(i+1, example[0].shape, example[1]))
+    print('Image {} shape: {} label: {}'.format(i + 1, example[0].shape, example[1]))
 
 IMAGE_RES = 224
+
+
 def format_image(image, label):
-    image = tf.image.resize(image, (IMAGE_RES, IMAGE_RES))/255.0
+    image = tf.image.resize(image, (IMAGE_RES, IMAGE_RES)) / 255.0
     return image, label
 
-BATCH_SIZE
 
-#fucked
+BATCH_SIZE = 32
+train_batches = training_set.shuffle(num_training_examples // 4).map(format_image).batch(BATCH_SIZE).prefetch(1)
+validation_batches = validation_set.map(format_image).b
+
+# fucked
 # feeling confused abt this give me time
