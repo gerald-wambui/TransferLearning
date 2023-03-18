@@ -47,5 +47,19 @@ BATCH_SIZE = 32
 train_batches = training_set.shuffle(num_training_examples // 4).map(format_image).batch(BATCH_SIZE).prefetch(1)
 validation_batches = validation_set.map(format_image).b
 
+'''
+
+Simple transfer learning using tensorflow hub
+Create a feature extractor using MobileNet v2
+Freeze the pretrained model
+
+'''
+
+URL = "https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/4"
+feature_extractor = hub.KerasLayer(URL,
+                                   input_shape=(IMAGE_RES, IMAGE_RES, 3))
+
+# Put some ice on our model
+feature_extractor.trainable = False
 # fucked
 # feeling confused abt this give me time
