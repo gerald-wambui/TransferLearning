@@ -103,5 +103,14 @@ plt.show()
 # check predictions
 class_names = np.array(dataset_info.features['label'].names)
 print(class_names)
+
+image_batch, label_batch = next(iter(train_batches))
+image_batch = image_batch.numpy()
+label_batch = label_batch.numpy()
+predicted_batch = model.predict(image_batch)
+predicted_batch = tf.squeeze(predicted_batch).numpy()
+predicted_ids = np.argmax(predicted_batch, axis=-1)
+predicted_class_names = class_names[predicted_ids]
+print(predicted_class_names)
 # fucked
 # feeling confused abt this give me time
