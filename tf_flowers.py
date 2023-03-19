@@ -112,5 +112,12 @@ predicted_batch = tf.squeeze(predicted_batch).numpy()
 predicted_ids = np.argmax(predicted_batch, axis=-1)
 predicted_class_names = class_names[predicted_ids]
 print(predicted_class_names)
+
+# print true labels and predicted indices
+print("Labels: ", label_batch)
+print("Predicted labels: ", predicted_ids)
+
+# Plot model predictions using plt
+
 # fucked
 # feeling confused abt this give me time
