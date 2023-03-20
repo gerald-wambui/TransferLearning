@@ -118,6 +118,13 @@ print("Labels: ", label_batch)
 print("Predicted labels: ", predicted_ids)
 
 # Plot model predictions using plt
+plt.figure(figsize=(10, 9))
+for n in range(30):
+    plt.subplot(6, 5, n+1)
+    plt.subplots_adjust(hspace=0.3)
+    plt.imshow(image_batch[n])
+    color = "blue" if predicted_ids[n] == label_batch[n] else "red"
 
+  #alter ego
 # fucked
 # feeling confused abt this give me time
